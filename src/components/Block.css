@@ -1,5 +1,5 @@
 .Post {
-    width: 250px;
+    width: 450px;
     padding: 16px;
     text-align: center;
     border: 1px solid #eee;
@@ -7,15 +7,26 @@
     margin: 10px;
     box-sizing: border-box;
     cursor: pointer;
+    
 }
 
+.hash
+{    display: inline-block;
+   border: 1px solid black;
+    font-size: 60%;
+    border-radius: 10px;
+    
+}
 .Post:hover,
 .Post:active {
     background-color: #C0DDF5;
     cursor: pointer;
+    color: white;
+
 }
 
-.Author {
-    margin: 16px 0;
-    color: #ccc;
+.UserName {
+    
+     margin: 16px 0;
+    
 }

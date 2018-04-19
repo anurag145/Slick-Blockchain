@@ -1,14 +1,20 @@
 import React, { Component } from 'react';
-
+import {BrowserRouter}from 'react-router-dom'
 import './App.css';
-import Blockchain from './containers/Blockchain/Blockchain';
+
+import Main from './containers/Main/Main';
 
 class App extends Component {
   render() {
+    
+
     return (
+      <BrowserRouter>
       <div className="App">
-        <Blockchain/>
+       <Main/>
       </div>
+      </BrowserRouter>
+
     );
   }
 }
