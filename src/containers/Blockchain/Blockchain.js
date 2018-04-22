@@ -1,8 +1,9 @@
 import React ,{Component}from 'react';
-import axios from '../../axios';
+
 import Block from '../../components/Block';
 import './Blockchain.css';
 import CryptoJS from 'crypto-js';
+import firebase from '../../firebaseConfig';
 class Blockchain extends Component{
     
     state = {
@@ -18,8 +19,8 @@ class Blockchain extends Component{
     componentDidMount () {
         let tempPrev=this.state.prev;
          let tempBlocks=[];
-      axios.get('/data.json').then(res=>{
-         const data =[res.data];
+      firebase.database().ref('/data').on('value',res=>{
+         const data =[res.val()];
         
          
              let block;
@@ -55,16 +56,14 @@ class Blockchain extends Component{
           
      
       this.setState({blocks: tempBlocks,prev:tempPrev});
-      }).catch(error=>{
-          console.log(error);
-        this.setState({error: true});
       });
      
       
     }
 
     render(){
-        let chain = <p style={{textAlign: 'center'}}>Something went wrong!</p>;
+        let chain = <p style={{textAlign: 'center'}}>Chain Empty</p>;
+        if(this.state.blocks.length!==0)
         if (!this.state.error) {
             
             chain = this.state.blocks.map(el => {
@@ -80,7 +79,8 @@ class Blockchain extends Component{
                 
                    />;
             });
-        }
+        }else
+        chain = <p style={{textAlign: 'center'}}>Something went wrong!</p>;
 
         return(
             <section className="Chain">

@@ -1,7 +1,9 @@
 .Smartcontract {
     display: flex;
     flex-flow: row wrap;
-    justify-content: center;
+    justify-content: left;
     width: 80%;
-    margin: auto;
+    margin-top: 32px;
+    margin-right: 32px;
+    margin-left: 32px;
 }
